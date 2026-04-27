@@ -39,11 +39,11 @@ The website focuses on:
 
 ## File structure
 
-```text
-index.html
-styles.css
-script.js
-README.md
+
+`index.html`
+`styles.css`
+`script.js`
+`README.md`
 
 
 ## How to view locally
