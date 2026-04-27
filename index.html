@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>River Medlock: River Life and Iron</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="brand" href="#hero">River Medlock Fe</a>
+
+      <ul class="nav-list">
+        <li><a href="#why">Why</a></li>
+        <li><a href="#organisms">Organisms</a></li>
+        <li><a href="#river-map">Map</a></li>
+        <li><a href="#findings">Findings</a></li>
+        <li><a href="#explore">Explore</a></li>
+        <li><a href="#feedback">Feedback</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="hero" aria-labelledby="hero-title">
+      <article class="hero-content">
+        <p class="eyebrow">Science communication through local river data</p>
+        <h1 id="hero-title">What can river life tell us about pollution?</h1>
+        <p>
+          Exploring how aquatic organisms reveal environmental patterns along the River Medlock.
+        </p>
+        <a class="button" href="#why">Scroll to explore</a>
+      </article>
+    </section>
+
+    <section id="why" class="section" aria-labelledby="why-title">
+      <header class="section-header">
+        <p class="eyebrow">Why this matters</p>
+        <h2 id="why-title">Urban rivers are living systems</h2>
+      </header>
+
+      <article class="split-layout">
+        <section>
+          <p>
+            Rivers flowing through towns and cities can be affected by roads, land use,
+            rainfall, and human activity. These pressures can influence both water quality
+            and the organisms living in the river.
+          </p>
+
+          <p>
+            This website communicates iron data from River Medlock macroinvertebrates using
+            maps, charts, short explanations, and interactive filters for residents, students,
+            and community groups.
+          </p>
+        </section>
+
+        <aside class="panel">
+          <h3>Communication goal</h3>
+          <p>
+            Make environmental monitoring easier to understand by connecting scientific data
+            to local places and familiar river life.
+          </p>
+        </aside>
+      </article>
+    </section>
+
+    <section id="organisms" class="section section-muted" aria-labelledby="organisms-title">
+      <header class="section-header">
+        <p class="eyebrow">Meet the organisms</p>
+        <h2 id="organisms-title">Small species, useful signals</h2>
+        <p>
+          Macroinvertebrates make river health easier to communicate because they are living
+          organisms that respond to local environmental conditions.
+        </p>
+      </header>
+
+      <section class="card-grid organism-grid" aria-label="Organism groups">
+        <article class="card">
+          <span class="icon" aria-hidden="true">🦟</span>
+          <h3>Mayflies</h3>
+          <p>Often associated with aquatic conditions and environmental sensitivity.</p>
+        </article>
+
+        <article class="card">
+          <span class="icon" aria-hidden="true">🦐</span>
+          <h3>Shrimps</h3>
+          <p>Common river organisms useful for comparing patterns across samples.</p>
+        </article>
+
+        <article class="card">
+          <span class="icon" aria-hidden="true">🪱</span>
+          <h3>Worms</h3>
+          <p>Useful for thinking about sediment and river-bed conditions.</p>
+        </article>
+
+        <article class="card">
+          <span class="icon" aria-hidden="true">〰️</span>
+          <h3>Leeches</h3>
+          <p>A macroinvertebrate group that helps broaden the biological story.</p>
+        </article>
+
+        <article class="card">
+          <span class="icon" aria-hidden="true">🏠</span>
+          <h3>Cased Caddis</h3>
+          <p>Less frequent in the data, but useful for biodiversity context.</p>
+        </article>
+      </section>
+    </section>
+
+    <section id="river-map" class="section" aria-labelledby="map-title">
+      <header class="section-header">
+        <p class="eyebrow">Follow the river</p>
+        <h2 id="map-title">From source towards Clayton Vale</h2>
+        <p>
+          The map turns the dataset into a place-based story by showing the River Medlock
+          sites as a downstream journey.
+        </p>
+      </header>
+
+      <article class="map-layout">
+        <figure class="map-figure">
+          <div id="map" role="application" aria-label="Interactive map of River Medlock sites"></div>
+          <figcaption>
+            Interactive map showing Lees Park, Daisy Nook, Failsworth WwTW, and Clayton Vale.
+          </figcaption>
+        </figure>
+
+        <aside class="panel">
+          <h3>Why use a real map?</h3>
+          <p>
+            A map connects scientific data to recognisable local places, helping non-specialist
+            audiences understand where the river story is happening.
+          </p>
+
+          <dl class="site-summary">
+            <dt>Source altitude</dt>
+            <dd>379 m</dd>
+
+            <dt>Main Fe organism sites</dt>
+            <dd>Daisy Nook and Clayton Vale</dd>
+
+            <dt>Contextual location</dt>
+            <dd>Failsworth WwTW</dd>
+          </dl>
+        </aside>
+      </article>
+    </section>
+
+    <section id="sampling" class="section section-muted" aria-labelledby="sampling-title">
+      <header class="section-header">
+        <p class="eyebrow">How the data was collected</p>
+        <h2 id="sampling-title">Sampling across Summer and Autumn 2024</h2>
+      </header>
+
+      <article class="split-layout">
+        <section>
+          <p>
+            Benthic macroinvertebrates were collected using a 3-minute kick-net sampling
+            technique. Sampling occurred between June and November 2024, covering Summer
+            and Autumn.
+          </p>
+
+          <p>
+            The website keeps the sampling explanation short because its main purpose is
+            communication, not presenting a full experimental report.
+          </p>
+        </section>
+
+        <aside class="panel">
+          <h3>Season guide</h3>
+          <ul class="clean-list">
+            <li><strong>Summer:</strong> June to August</li>
+            <li><strong>Autumn:</strong> September to November</li>
+            <li><strong>Focus:</strong> communicating seasonal patterns simply</li>
+          </ul>
+        </aside>
+      </article>
+    </section>
+
+    <section id="findings" class="section" aria-labelledby="findings-title">
+      <header class="section-header">
+        <p class="eyebrow">What did we find?</p>
+        <h2 id="findings-title">Guided visual findings</h2>
+        <p>
+          These charts are learning materials for the website. They are designed to help
+          people understand patterns without needing to read the raw dataset.
+        </p>
+      </header>
+
+      <section class="chart-grid" aria-label="Guided data visualisations">
+        <article class="chart-card">
+          <h3>Community composition</h3>
+          <figure>
+            <canvas id="compositionChart"></canvas>
+            <figcaption class="takeaway" id="compositionTakeaway"></figcaption>
+          </figure>
+        </article>
+
+        <article class="chart-card">
+          <h3>Average iron by site</h3>
+          <figure>
+            <canvas id="siteChart"></canvas>
+            <figcaption class="takeaway" id="siteTakeaway"></figcaption>
+          </figure>
+        </article>
+
+        <article class="chart-card">
+          <h3>Average iron by organism group</h3>
+          <figure>
+            <canvas id="taxonChart"></canvas>
+            <figcaption class="takeaway" id="taxonTakeaway"></figcaption>
+          </figure>
+        </article>
+
+        <article class="chart-card">
+          <h3>Average iron by season</h3>
+          <figure>
+            <canvas id="seasonChart"></canvas>
+            <figcaption class="takeaway" id="seasonTakeaway"></figcaption>
+          </figure>
+        </article>
+      </section>
+
+      <aside class="notice">
+        <h3>About high values</h3>
+        <p>
+          Some samples show much higher iron concentrations than others. These values are kept
+          in the visualisations because they may represent important environmental or biological
+          variation.
+        </p>
+      </aside>
+    </section>
+
+    <section id="explore" class="section section-muted" aria-labelledby="explore-title">
+      <header class="section-header">
+        <p class="eyebrow">Explore the data</p>
+        <h2 id="explore-title">Choose what you want to compare</h2>
+        <p>
+          This section gives curious visitors more control while keeping the experience simple.
+        </p>
+      </header>
+
+      <form class="filters" aria-label="Data filters">
+        <label>
+          Taxon
+          <select id="taxonFilter">
+            <option value="All">All</option>
+          </select>
+        </label>
+
+        <label>
+          Location
+          <select id="locationFilter">
+            <option value="All">All</option>
+          </select>
+        </label>
+
+        <label>
+          Season
+          <select id="seasonFilter">
+            <option value="All">All</option>
+          </select>
+        </label>
+      </form>
+
+      <article class="chart-card chart-card-wide">
+        <h3>Filtered iron values</h3>
+        <figure>
+          <canvas id="exploreChart"></canvas>
+          <figcaption id="filterSummary" class="takeaway">
+            Select filters to explore how iron concentration changes across the dataset.
+          </figcaption>
+        </figure>
+      </article>
+    </section>
+
+    <section id="meaning" class="section" aria-labelledby="meaning-title">
+      <header class="section-header">
+        <p class="eyebrow">What does this mean?</p>
+        <h2 id="meaning-title">From data to public understanding</h2>
+      </header>
+
+      <section class="card-grid message-grid" aria-label="Key messages">
+        <article class="card">
+          <h3>Organisms tell environmental stories</h3>
+          <p>Macroinvertebrates make river health easier to communicate visually.</p>
+        </article>
+
+        <article class="card">
+          <h3>Local context matters</h3>
+          <p>Maps help connect scientific data to places that audiences can recognise.</p>
+        </article>
+
+        <article class="card">
+          <h3>Visuals reduce barriers</h3>
+          <p>Charts and short takeaways help simplify complex environmental data.</p>
+        </article>
+
+        <article class="card">
+          <h3>Interaction supports engagement</h3>
+          <p>Filters let visitors explore without needing specialist knowledge.</p>
+        </article>
+      </section>
+    </section>
+
+    <section id="feedback" class="section section-muted" aria-labelledby="feedback-title">
+      <header class="section-header">
+        <p class="eyebrow">Help evaluate this website</p>
+        <h2 id="feedback-title">Your feedback matters</h2>
+        <p>
+          This website is part of a science communication project. Feedback will help evaluate
+          whether the design, language, visuals, and interaction make the river data easier to
+          understand.
+        </p>
+        <a class="button button-dark" id="feedbackButton" href="#" target="_blank" rel="noopener">
+          Complete the feedback form
+        </a>
+        <p class="small-note">
+          Replace the feedback button link in <code>script.js</code> with your Google Form URL.
+        </p>
+      </header>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      Created as a science communication website for River Medlock macroinvertebrate iron data.
+    </p>
+  </footer>
+</body>
+</html>
