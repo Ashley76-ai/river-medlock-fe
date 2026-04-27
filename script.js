@@ -1,6 +1,6 @@
 "use strict";
 
-const FEEDBACK_FORM_URL = "#";
+const FEEDBACK_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeVMKQfRcuB5XXQNw9NkhJELTmLF6GlMcQrUOFOZCtoZgi8hA/viewform?usp=publish-editor";
 
 const riverSites = [
   {
