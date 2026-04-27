@@ -1,6 +1,7 @@
 "use strict";
 
-const FEEDBACK_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeVMKQfRcuB5XXQNw9NkhJELTmLF6GlMcQrUOFOZCtoZgi8hA/viewform?usp=publish-editor";
+const FEEDBACK_FORM_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSeVMKQfRcuB5XXQNw9NkhJELTmLF6GlMcQrUOFOZCtoZgi8hA/viewform?usp=publish-editor";
 
 const riverSites = [
   {
@@ -10,7 +11,7 @@ const riverSites = [
     longitude: -2.072145,
     altitude: 185.6,
     distanceFromSource: 2.5,
-    role: "Upstream reference site"
+    role: "Upstream macroinvertebrate sampling site"
   },
   {
     name: "Daisy Nook",
@@ -22,172 +23,165 @@ const riverSites = [
     role: "Macroinvertebrate sampling site"
   },
   {
-    name: "Failsworth WwTW",
-    label: "WwTW",
-    latitude: 53.49399,
-    longitude: -2.158228,
-    altitude: 61.7,
-    distanceFromSource: 13.5,
-    role: "Contextual wastewater treatment works location"
-  },
-  {
     name: "Clayton Vale",
     label: "CV",
     latitude: 53.491686,
     longitude: -2.17688,
     altitude: 52.5,
     distanceFromSource: 15,
-    role: "Macroinvertebrate sampling site"
+    role: "Downstream macroinvertebrate sampling site"
   }
 ];
 
-const riverData = [
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 2.5, season: "Autumn", fe: 2831.396 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 1.9, season: "Autumn", fe: 3818.876 },
-  { taxon: "Mayflies", location: "Clayton Vale", dryWeight: 1.3, season: "Autumn", fe: 2067.379 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 1.9, season: "Autumn", fe: 8409.21 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 6.4, season: "Autumn", fe: 699.998 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 8.6, season: "Autumn", fe: 2829.273 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 1.8, season: "Autumn", fe: 7711.167 },
-  { taxon: "Mayflies", location: "Clayton Vale", dryWeight: 2.4, season: "Autumn", fe: 7700.986 },
-  { taxon: "Shrimps", location: "Clayton Vale", dryWeight: 1.8, season: "Autumn", fe: 2256.52 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 2.2, season: "Autumn", fe: 8122.712 },
-  { taxon: "Leeches", location: "Clayton Vale", dryWeight: 0.6, season: "Autumn", fe: 3639.791 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 2.2, season: "Autumn", fe: 13413.907 },
-  { taxon: "Shrimps", location: "Clayton Vale", dryWeight: 2.0, season: "Autumn", fe: 3884.867 },
-  { taxon: "Worms", location: "Daisy Nook", dryWeight: 4.0, season: "Autumn", fe: 12896.878 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 1.7, season: "Autumn", fe: 4320.517 },
-  { taxon: "Worms", location: "Daisy Nook", dryWeight: 3.4, season: "Summer", fe: 5854.852 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 1.2, season: "Autumn", fe: 7621.882 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 4.0, season: "Autumn", fe: 870.501 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 7.3, season: "Autumn", fe: 1853.551 },
-  { taxon: "Shrimps", location: "Clayton Vale", dryWeight: 1.7, season: "Autumn", fe: 0.005 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 10.3, season: "Summer", fe: 1608.113 },
-  { taxon: "Mayflies", location: "Clayton Vale", dryWeight: 8.3, season: "Autumn", fe: 2854.663 },
-  { taxon: "Leeches", location: "Daisy Nook", dryWeight: 1.5, season: "Autumn", fe: 2360.732 },
-  { taxon: "Shrimps", location: "Clayton Vale", dryWeight: 0.7, season: "Autumn", fe: 8544.601 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 10.7, season: "Autumn", fe: 1460.961 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 0.6, season: "Autumn", fe: 39206.45 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 0.6, season: "Autumn", fe: 12382.708 },
-  { taxon: "Leeches", location: "Daisy Nook", dryWeight: 3.4, season: "Summer", fe: 2258.786 },
-  { taxon: "Leeches", location: "Daisy Nook", dryWeight: 4.0, season: "Autumn", fe: 1821.368 },
-  { taxon: "Leeches", location: "Daisy Nook", dryWeight: 8.3, season: "Autumn", fe: 578.786 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 2.7, season: "Autumn", fe: 6253.811 },
-  { taxon: "Shrimps", location: "Clayton Vale", dryWeight: 3.7, season: "Autumn", fe: 2468.428 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 3.5, season: "Autumn", fe: 1384.977 },
-  { taxon: "Leeches", location: "Daisy Nook", dryWeight: 2.9, season: "Autumn", fe: 777.965 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 4.1, season: "Autumn", fe: 6504.967 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 5.6, season: "Autumn", fe: 3673.007 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 2.9, season: "Autumn", fe: 1868.197 },
-  { taxon: "Mayflies", location: "Clayton Vale", dryWeight: 3.5, season: "Autumn", fe: 1775.612 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 7.6, season: "Autumn", fe: 1485.772 },
-  { taxon: "Mayflies", location: "Clayton Vale", dryWeight: 6.0, season: "Autumn", fe: 6829.73 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 4.2, season: "Autumn", fe: 6839.681 },
-  { taxon: "Mayflies", location: "Clayton Vale", dryWeight: 5.3, season: "Autumn", fe: 6741.571 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 3.2, season: "Autumn", fe: 4511.434 },
-  { taxon: "Mayflies", location: "Clayton Vale", dryWeight: 5.2, season: "Autumn", fe: 3701.221 },
-  { taxon: "Mayflies", location: "Clayton Vale", dryWeight: 9.8, season: "Autumn", fe: 7236.376 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 6.4, season: "Autumn", fe: 11489.604 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 8.0, season: "Autumn", fe: 4641.728 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 3.8, season: "Autumn", fe: 16353.264 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 4.4, season: "Summer", fe: 12624.143 },
-  { taxon: "Mayflies", location: "Clayton Vale", dryWeight: 6.6, season: "Autumn", fe: 8652.525 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 4.1, season: "Summer", fe: 949.169 },
-  { taxon: "Worms", location: "Daisy Nook", dryWeight: 9.4, season: "Autumn", fe: 8364.749 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 1.4, season: "Autumn", fe: 42664.897 },
-  { taxon: "Worms", location: "Daisy Nook", dryWeight: 6.8, season: "Autumn", fe: 5362.242 },
-  { taxon: "Mayflies", location: "Clayton Vale", dryWeight: 7.3, season: "Summer", fe: 2748.708 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 4.4, season: "Summer", fe: 11633.205 },
-  { taxon: "Mayflies", location: "Clayton Vale", dryWeight: 4.6, season: "Autumn", fe: 13837.989 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 6.9, season: "Summer", fe: 8914.913 },
-  { taxon: "Leeches", location: "Daisy Nook", dryWeight: 6.7, season: "Autumn", fe: 618.319 },
-  { taxon: "Shrimps", location: "Clayton Vale", dryWeight: 4.9, season: "Autumn", fe: 5074.508 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 6.7, season: "Autumn", fe: 7842.936 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 12.1, season: "Autumn", fe: 9099.113 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 7.8, season: "Autumn", fe: 13382.612 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 6.4, season: "Autumn", fe: 5813.208 },
-  { taxon: "Leeches", location: "Daisy Nook", dryWeight: 7.1, season: "Autumn", fe: 1502.195 },
-  { taxon: "Leeches", location: "Clayton Vale", dryWeight: 12.4, season: "Autumn", fe: 4706.733 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 9.9, season: "Summer", fe: 6682.93 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 18.1, season: "Autumn", fe: 5291.141 },
-  { taxon: "Mayflies", location: "Clayton Vale", dryWeight: 25.9, season: "Autumn", fe: 4766.182 },
-  { taxon: "Leeches", location: "Daisy Nook", dryWeight: 4.9, season: "Autumn", fe: 4835.003 },
-  { taxon: "Shrimps", location: "Clayton Vale", dryWeight: 12.6, season: "Autumn", fe: 3033.331 },
-  { taxon: "Shrimps", location: "Clayton Vale", dryWeight: 6.8, season: "Autumn", fe: 1035.349 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 4.8, season: "Summer", fe: 4225.664 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 3.1, season: "Summer", fe: 9206.963 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 3.9, season: "Autumn", fe: 2819.714 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 5.1, season: "Summer", fe: 2196.896 },
-  { taxon: "Shrimps", location: "Clayton Vale", dryWeight: 9.5, season: "Autumn", fe: 3995.139 },
-  { taxon: "Leeches", location: "Clayton Vale", dryWeight: 16.2, season: "Autumn", fe: 696.641 },
-  { taxon: "Leeches", location: "Daisy Nook", dryWeight: 4.3, season: "Autumn", fe: 723.496 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 14.0, season: "Summer", fe: 858.757 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 12.0, season: "Autumn", fe: 4094.199 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 8.8, season: "Autumn", fe: 4249.023 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 8.5, season: "Autumn", fe: 9417.188 },
-  { taxon: "Shrimps", location: "Clayton Vale", dryWeight: 15.6, season: "Autumn", fe: 2873.825 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 13.0, season: "Summer", fe: 2305.23 },
-  { taxon: "Worms", location: "Daisy Nook", dryWeight: 15.6, season: "Autumn", fe: 13333.363 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 16.8, season: "Autumn", fe: 3132.443 },
-  { taxon: "Mayflies", location: "Clayton Vale", dryWeight: 20.2, season: "Summer", fe: 4179.303 },
-  { taxon: "Mayflies", location: "Clayton Vale", dryWeight: 17.0, season: "Summer", fe: 3989.38 },
-  { taxon: "Leeches", location: "Clayton Vale", dryWeight: 10.9, season: "Autumn", fe: 1527.657 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 18.6, season: "Autumn", fe: 3233.263 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 29.4, season: "Autumn", fe: 3159.572 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 25.5, season: "Autumn", fe: 5678.98 },
-  { taxon: "Mayflies", location: "Clayton Vale", dryWeight: 23.6, season: "Summer", fe: 5499.455 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 32.9, season: "Autumn", fe: 4741.246 },
-  { taxon: "Leeches", location: "Daisy Nook", dryWeight: 28.9, season: "Autumn", fe: 519.275 },
-  { taxon: "Worms", location: "Daisy Nook", dryWeight: 9.7, season: "Autumn", fe: 6183.461 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 31.3, season: "Summer", fe: 8808.297 },
-  { taxon: "Mayflies", location: "Clayton Vale", dryWeight: 24.8, season: "Summer", fe: 5151.882 },
-  { taxon: "Leeches", location: "Daisy Nook", dryWeight: 19.3, season: "Autumn", fe: 826.257 },
-  { taxon: "Cased Caddis", location: "Daisy Nook", dryWeight: 54.7, season: "Autumn", fe: 26764.649 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 21.0, season: "Summer", fe: 2996.853 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 29.4, season: "Autumn", fe: 2822.285 },
-  { taxon: "Shrimps", location: "Clayton Vale", dryWeight: 19.5, season: "Summer", fe: 4055.322 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 41.9, season: "Summer", fe: 4952.965 },
-  { taxon: "Worms", location: "Daisy Nook", dryWeight: 15.2, season: "Summer", fe: 14862.108 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 35.1, season: "Autumn", fe: 1999.099 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 47.8, season: "Summer", fe: 6165.769 },
-  { taxon: "Leeches", location: "Clayton Vale", dryWeight: 22.9, season: "Autumn", fe: 1938.583 },
-  { taxon: "Mayflies", location: "Clayton Vale", dryWeight: 43.8, season: "Summer", fe: 5098.735 },
-  { taxon: "Worms", location: "Daisy Nook", dryWeight: 12.8, season: "Autumn", fe: 3116.449 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 65.3, season: "Summer", fe: 7481.492 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 37.3, season: "Autumn", fe: 2820.677 },
-  { taxon: "Mayflies", location: "Daisy Nook", dryWeight: 58.7, season: "Autumn", fe: 3540.899 },
-  { taxon: "Leeches", location: "Daisy Nook", dryWeight: 30.1, season: "Autumn", fe: 566.13 },
-  { taxon: "Worms", location: "Daisy Nook", dryWeight: 19.8, season: "Summer", fe: 11933.595 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 35.4, season: "Autumn", fe: 2385.122 },
-  { taxon: "Leeches", location: "Clayton Vale", dryWeight: 29.3, season: "Autumn", fe: 1302.33 },
-  { taxon: "Shrimps", location: "Clayton Vale", dryWeight: 36.5, season: "Autumn", fe: 596.3 },
-  { taxon: "Leeches", location: "Daisy Nook", dryWeight: 38.9, season: "Autumn", fe: 864.006 },
-  { taxon: "Leeches", location: "Clayton Vale", dryWeight: 32.0, season: "Autumn", fe: 686.359 },
-  { taxon: "Leeches", location: "Daisy Nook", dryWeight: 17.2, season: "Autumn", fe: 999.841 },
-  { taxon: "Worms", location: "Daisy Nook", dryWeight: 23.8, season: "Summer", fe: 15081.742 },
-  { taxon: "Leeches", location: "Clayton Vale", dryWeight: 17.8, season: "Autumn", fe: 908.259 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 37.3, season: "Autumn", fe: 1720.243 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 42.0, season: "Summer", fe: 2404.64 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 53.7, season: "Autumn", fe: 2291.605 },
-  { taxon: "Mayflies", location: "Clayton Vale", dryWeight: 70.0, season: "Summer", fe: 4872.883 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 36.4, season: "Autumn", fe: 2379.63 },
-  { taxon: "Cased Caddis", location: "Daisy Nook", dryWeight: 313.0, season: "Autumn", fe: 1648.443 },
-  { taxon: "Leeches", location: "Daisy Nook", dryWeight: 44.4, season: "Autumn", fe: 1168.64 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 37.0, season: "Autumn", fe: 2382.531 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 56.5, season: "Autumn", fe: 2234.615 },
-  { taxon: "Shrimps", location: "Clayton Vale", dryWeight: 41.5, season: "Autumn", fe: 1020.567 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 50.9, season: "Autumn", fe: 1587.53 },
-  { taxon: "Worms", location: "Daisy Nook", dryWeight: 42.0, season: "Summer", fe: 13383.596 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 64.0, season: "Summer", fe: 2224.567 },
-  { taxon: "Leeches", location: "Daisy Nook", dryWeight: 70.9, season: "Autumn", fe: 892.586 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 92.3, season: "Summer", fe: 1887.6 },
-  { taxon: "Mayflies", location: "Clayton Vale", dryWeight: 113.9, season: "Summer", fe: 4812.988 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 103.3, season: "Autumn", fe: 2458.401 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 125.1, season: "Autumn", fe: 1908.964 },
-  { taxon: "Leeches", location: "Daisy Nook", dryWeight: 221.4, season: "Autumn", fe: 1304.487 },
-  { taxon: "Shrimps", location: "Daisy Nook", dryWeight: 187.5, season: "Autumn", fe: 2399.114 }
-];
+const rawData = `
+Taxon,Location,Dry Weight (mg),Season,Fe
+Mayflies,Daisy Nook,2.5,Autumn,2831.39634
+Mayflies,Daisy Nook,1.9,Autumn,3818.876419
+Mayflies,Clayton Vale,1.3,Autumn,2067.378687
+Mayflies,Daisy Nook,1.9,Autumn,8409.21043
+Mayflies,Daisy Nook,6.4,Autumn,699.9975737
+Mayflies,Lees Park,8.6,Autumn,2829.273326
+Mayflies,Daisy Nook,1.8,Autumn,7711.166777
+Mayflies,Clayton Vale,2.4,Autumn,7700.98577
+Shrimps,Clayton Vale,1.8,Autumn,2256.520098
+Mayflies,Daisy Nook,2.2,Autumn,8122.71206
+Leeches,Clayton Vale,0.6,Autumn,3639.791054
+Mayflies,Daisy Nook,2.2,Autumn,13413.90709
+Shrimps,Clayton Vale,2,Autumn,3884.866545
+Worms,Daisy Nook,4,Autumn,12896.8779
+Shrimps,Daisy Nook,1.7,Autumn,4320.517353
+Worms,Daisy Nook,3.4,Summer,5854.852486
+Shrimps,Daisy Nook,1.2,Autumn,7621.881672
+Shrimps,Daisy Nook,4,Autumn,870.5010579
+Mayflies,Lees Park,7.3,Autumn,1853.551279
+Shrimps,Clayton Vale,1.7,Autumn,0.052941176
+Mayflies,Daisy Nook,10.3,Summer,1608.113212
+Mayflies,Clayton Vale,8.3,Autumn,2854.662878
+Leeches,Lees Park,1.5,Autumn,2360.732297
+Shrimps,Clayton Vale,0.7,Autumn,8544.60102
+Shrimps,Daisy Nook,10.7,Autumn,1460.960578
+Mayflies,Daisy Nook,0.6,Autumn,39206.4501
+Shrimps,Lees Park,0.6,Autumn,12382.70767
+Leeches,Lees Park,3.4,Summer,2258.785825
+Leeches,Lees Park,4,Autumn,1821.368043
+Leeches,Lees Park,8.3,Autumn,578.7862036
+Shrimps,Lees Park,2.7,Autumn,6253.810931
+Shrimps,Clayton Vale,3.7,Autumn,2468.427945
+Shrimps,Daisy Nook,3.5,Autumn,1384.97734
+Leeches,Daisy Nook,2.9,Autumn,777.9651551
+Mayflies,Lees Park,4.1,Autumn,6504.966869
+Mayflies,Daisy Nook,5.6,Autumn,3673.00729
+Shrimps,Daisy Nook,2.9,Autumn,1868.196803
+Mayflies,Clayton Vale,3.5,Autumn,1775.612213
+Mayflies,Lees Park,7.6,Autumn,1485.772047
+Mayflies,Clayton Vale,6,Autumn,6829.730055
+Mayflies,Daisy Nook,4.2,Autumn,6839.680974
+Mayflies,Clayton Vale,5.3,Autumn,6741.571224
+Mayflies,Lees Park,3.2,Autumn,4511.434229
+Mayflies,Clayton Vale,5.2,Autumn,3701.22067
+Mayflies,Clayton Vale,9.8,Autumn,7236.376481
+Mayflies,Daisy Nook,6.4,Autumn,11489.60401
+Mayflies,Daisy Nook,8,Autumn,4641.727802
+Mayflies,Lees Park,3.8,Autumn,16353.26426
+Mayflies,Lees Park,4.4,Summer,12624.14261
+Mayflies,Clayton Vale,6.6,Autumn,8652.524877
+Mayflies,Lees Park,4.1,Summer,949.168885
+Worms,Lees Park,9.4,Autumn,8364.748881
+Shrimps,Daisy Nook,1.4,Autumn,42664.8967
+Worms,Lees Park,6.8,Autumn,5362.242013
+Mayflies,Clayton Vale,7.3,Summer,2748.707507
+Mayflies,Lees Park,4.4,Summer,11633.20507
+Mayflies,Clayton Vale,4.6,Autumn,13837.98913
+Mayflies,Lees Park,6.9,Summer,8914.912722
+Leeches,Daisy Nook,6.7,Autumn,618.3186389
+Shrimps,Clayton Vale,4.9,Autumn,5074.507687
+Mayflies,Daisy Nook,6.7,Autumn,7842.936191
+Mayflies,Daisy Nook,12.1,Autumn,9099.112566
+Mayflies,Lees Park,7.8,Autumn,13382.61245
+Mayflies,Daisy Nook,6.4,Autumn,5813.208175
+Leeches,Lees Park,7.1,Autumn,1502.194616
+Leeches,Clayton Vale,12.4,Autumn,4706.732781
+Mayflies,Daisy Nook,9.9,Summer,6682.930459
+Mayflies,Lees Park,18.1,Autumn,5291.141379
+Mayflies,Clayton Vale,25.9,Autumn,4766.182143
+Leeches,Lees Park,4.9,Autumn,4835.002565
+Shrimps,Clayton Vale,12.6,Autumn,3033.330984
+Shrimps,Clayton Vale,6.8,Autumn,1035.349069
+Shrimps,Daisy Nook,4.8,Summer,4225.663572
+Mayflies,Daisy Nook,3.1,Summer,9206.962765
+Shrimps,Daisy Nook,3.9,Autumn,2819.71425
+Shrimps,Lees Park,5.1,Summer,2196.896
+Shrimps,Clayton Vale,9.5,Autumn,3995.139
+Leeches,Clayton Vale,16.2,Autumn,696.641
+Leeches,Lees Park,4.3,Autumn,723.496
+Shrimps,Daisy Nook,14,Summer,858.757
+Shrimps,Daisy Nook,12,Autumn,4094.199
+Shrimps,Lees Park,8.8,Autumn,4249.023
+Mayflies,Lees Park,8.5,Autumn,9417.188
+Shrimps,Clayton Vale,15.6,Autumn,2873.825
+Shrimps,Lees Park,13,Summer,2305.23
+Worms,Lees Park,15.6,Autumn,13333.363
+Shrimps,Lees Park,16.8,Autumn,3132.443
+Mayflies,Clayton Vale,20.2,Summer,4179.303
+Mayflies,Clayton Vale,17,Summer,3989.38
+Leeches,Clayton Vale,10.9,Autumn,1527.657
+Shrimps,Lees Park,18.6,Autumn,3233.263
+Mayflies,Lees Park,29.4,Autumn,3159.572
+Mayflies,Daisy Nook,25.5,Autumn,5678.98
+Mayflies,Clayton Vale,23.6,Summer,5499.455
+Mayflies,Lees Park,32.9,Autumn,4741.246
+Leeches,Lees Park,28.9,Autumn,519.275
+Worms,Daisy Nook,9.7,Autumn,6183.461
+Mayflies,Daisy Nook,31.3,Summer,8808.297
+Mayflies,Clayton Vale,24.8,Summer,5151.882
+Leeches,Lees Park,19.3,Autumn,826.257
+Cased Caddis,Lees Park,54.7,Autumn,26764.649
+Shrimps,Lees Park,21,Summer,2996.853
+Shrimps,Lees Park,29.4,Autumn,2822.285
+Shrimps,Clayton Vale,19.5,Summer,4055.322
+Mayflies,Daisy Nook,41.9,Summer,4952.965
+Worms,Lees Park,15.2,Autumn,14862.108
+Shrimps,Lees Park,35.1,Autumn,1999.099
+Mayflies,Daisy Nook,47.8,Summer,6165.769
+Leeches,Clayton Vale,22.9,Autumn,1938.583
+Mayflies,Clayton Vale,43.8,Summer,5098.735
+Worms,Lees Park,12.8,Autumn,3116.449
+Mayflies,Daisy Nook,65.3,Summer,7481.492
+Shrimps,Lees Park,37.3,Autumn,2820.677
+Mayflies,Lees Park,58.7,Autumn,3540.899
+Leeches,Lees Park,30.1,Autumn,566.13
+Worms,Lees Park,19.8,Summer,11933.595
+Shrimps,Lees Park,35.4,Autumn,2385.122
+Leeches,Clayton Vale,29.3,Autumn,1302.33
+Shrimps,Clayton Vale,36.5,Autumn,596.3
+Leeches,Lees Park,38.9,Autumn,864.006
+Leeches,Clayton Vale,32,Autumn,686.359
+Leeches,Lees Park,17.2,Autumn,999.841
+Worms,Lees Park,23.8,Summer,15081.742
+Leeches,Clayton Vale,17.8,Autumn,908.259
+Shrimps,Lees Park,37.3,Autumn,1720.243
+Shrimps,Lees Park,42,Summer,2404.64
+Shrimps,Lees Park,53.7,Autumn,2291.605
+Mayflies,Clayton Vale,70,Summer,4872.883
+Shrimps,Lees Park,36.4,Autumn,2379.63
+Cased Caddis,Lees Park,313,Autumn,1648.443
+Leeches,Lees Park,44.4,Autumn,1168.64
+Shrimps,Lees Park,37,Autumn,2382.531
+Shrimps,Lees Park,56.5,Autumn,2234.615
+Shrimps,Clayton Vale,41.5,Autumn,1020.567
+Shrimps,Lees Park,50.9,Autumn,1587.53
+Worms,Lees Park,42,Summer,13383.596
+Shrimps,Lees Park,64,Summer,2224.567
+Leeches,Lees Park,70.9,Autumn,892.586
+Shrimps,Lees Park,92.3,Summer,1887.6
+Mayflies,Clayton Vale,113.9,Summer,4812.988
+Shrimps,Lees Park,103.3,Autumn,2458.401
+Shrimps,Lees Park,125.1,Autumn,1908.964
+Leeches,Lees Park,221.4,Autumn,1304.487
+Shrimps,Lees Park,187.5,Autumn,2399.114
+`;
 
+const riverData = parseRiverData(rawData);
 const chartColours = ["#2d6a4f", "#1d4e89", "#74c69d", "#f4a261", "#9b5de5", "#e76f51"];
 let exploreChart = null;
 
@@ -197,24 +191,52 @@ document.addEventListener("DOMContentLoaded", () => {
   initialiseCharts();
   initialiseFilters();
   writeTakeaways();
+  logDatasetCheck();
 });
+
+function parseRiverData(csvText) {
+  return csvText
+    .trim()
+    .split("\n")
+    .slice(1)
+    .map((line) => {
+      const [taxon, location, dryWeight, season, fe] = line.split(",").map((item) => item.trim());
+
+      return {
+        taxon,
+        location,
+        dryWeight: Number(dryWeight),
+        season,
+        fe: Number(fe)
+      };
+    })
+    .filter((row) => {
+      return (
+        row.taxon &&
+        row.location &&
+        row.season &&
+        Number.isFinite(row.dryWeight) &&
+        Number.isFinite(row.fe)
+      );
+    });
+}
 
 function initialiseFeedbackButton() {
   const feedbackButton = document.getElementById("feedbackButton");
-  feedbackButton.href = FEEDBACK_FORM_URL;
 
-  if (FEEDBACK_FORM_URL === "#") {
-    feedbackButton.addEventListener("click", (event) => {
-      event.preventDefault();
-      alert("Add your Google Form URL to FEEDBACK_FORM_URL in script.js.");
-    });
-  }
+  if (!feedbackButton) return;
+
+  feedbackButton.href = FEEDBACK_FORM_URL;
 }
 
 function initialiseMap() {
+  const mapElement = document.getElementById("map");
+
+  if (!mapElement || typeof L === "undefined") return;
+
   const map = L.map("map", {
     scrollWheelZoom: false
-  }).setView([53.515, -2.125], 12);
+  }).setView([53.512, -2.125], 12);
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; OpenStreetMap contributors"
@@ -258,19 +280,23 @@ function initialiseCharts() {
 
 function groupCount(data, key) {
   return data.reduce((summary, row) => {
-    summary[row[key]] = (summary[row[key]] || 0) + 1;
+    const label = row[key].trim();
+    summary[label] = (summary[label] || 0) + 1;
     return summary;
   }, {});
 }
 
 function groupAverage(data, key) {
   const grouped = data.reduce((summary, row) => {
-    if (!summary[row[key]]) {
-      summary[row[key]] = { total: 0, count: 0 };
+    const label = row[key].trim();
+
+    if (!summary[label]) {
+      summary[label] = { total: 0, count: 0 };
     }
 
-    summary[row[key]].total += row.fe;
-    summary[row[key]].count += 1;
+    summary[label].total += row.fe;
+    summary[label].count += 1;
+
     return summary;
   }, {});
 
@@ -283,37 +309,53 @@ function groupAverage(data, key) {
 }
 
 function createPieChart(canvasId, labels, values) {
-  return new Chart(document.getElementById(canvasId), {
+  const canvas = document.getElementById(canvasId);
+
+  if (!canvas || typeof Chart === "undefined") return null;
+
+  return new Chart(canvas, {
     type: "pie",
     data: {
       labels,
-      datasets: [{
-        data: values,
-        backgroundColor: chartColours
-      }]
+      datasets: [
+        {
+          data: values,
+          backgroundColor: chartColours
+        }
+      ]
     },
     options: {
       responsive: true,
+      maintainAspectRatio: true,
       plugins: {
-        legend: { position: "bottom" }
+        legend: {
+          position: "bottom"
+        }
       }
     }
   });
 }
 
 function createBarChart(canvasId, labels, values) {
-  return new Chart(document.getElementById(canvasId), {
+  const canvas = document.getElementById(canvasId);
+
+  if (!canvas || typeof Chart === "undefined") return null;
+
+  return new Chart(canvas, {
     type: "bar",
     data: {
       labels,
-      datasets: [{
-        data: values,
-        backgroundColor: labels.map((_, index) => chartColours[index % chartColours.length]),
-        borderRadius: 10
-      }]
+      datasets: [
+        {
+          data: values,
+          backgroundColor: labels.map((_, index) => chartColours[index % chartColours.length]),
+          borderRadius: 10
+        }
+      ]
     },
     options: {
       responsive: true,
+      maintainAspectRatio: true,
       scales: {
         y: {
           beginAtZero: true,
@@ -324,7 +366,9 @@ function createBarChart(canvasId, labels, values) {
         }
       },
       plugins: {
-        legend: { display: false },
+        legend: {
+          display: false
+        },
         tooltip: {
           callbacks: {
             label: (context) => `${formatNumber(context.raw)} µg/g dry weight`
@@ -336,23 +380,30 @@ function createBarChart(canvasId, labels, values) {
 }
 
 function createExploreChart(data) {
-  exploreChart = new Chart(document.getElementById("exploreChart"), {
+  const canvas = document.getElementById("exploreChart");
+
+  if (!canvas || typeof Chart === "undefined") return;
+
+  exploreChart = new Chart(canvas, {
     type: "scatter",
     data: {
-      datasets: [{
-        label: "Fe concentration",
-        data: data.map((row) => ({
-          x: row.dryWeight,
-          y: row.fe,
-          taxon: row.taxon,
-          location: row.location,
-          season: row.season
-        })),
-        backgroundColor: "#2d6a4f"
-      }]
+      datasets: [
+        {
+          label: "Fe concentration",
+          data: data.map((row) => ({
+            x: row.dryWeight,
+            y: row.fe,
+            taxon: row.taxon,
+            location: row.location,
+            season: row.season
+          })),
+          backgroundColor: "#2d6a4f"
+        }
+      ]
     },
     options: {
       responsive: true,
+      maintainAspectRatio: true,
       scales: {
         x: {
           title: {
@@ -373,6 +424,7 @@ function createExploreChart(data) {
           callbacks: {
             label: (context) => {
               const point = context.raw;
+
               return [
                 `${point.taxon} | ${point.location} | ${point.season}`,
                 `Dry weight: ${point.x} mg`,
@@ -391,17 +443,23 @@ function initialiseFilters() {
   populateFilter("locationFilter", uniqueValues(riverData, "location"));
   populateFilter("seasonFilter", uniqueValues(riverData, "season"));
 
-  document.getElementById("taxonFilter").addEventListener("change", updateExploreChart);
-  document.getElementById("locationFilter").addEventListener("change", updateExploreChart);
-  document.getElementById("seasonFilter").addEventListener("change", updateExploreChart);
+  const taxonFilter = document.getElementById("taxonFilter");
+  const locationFilter = document.getElementById("locationFilter");
+  const seasonFilter = document.getElementById("seasonFilter");
+
+  if (taxonFilter) taxonFilter.addEventListener("change", updateExploreChart);
+  if (locationFilter) locationFilter.addEventListener("change", updateExploreChart);
+  if (seasonFilter) seasonFilter.addEventListener("change", updateExploreChart);
 }
 
 function uniqueValues(data, key) {
-  return [...new Set(data.map((row) => row[key]))].sort();
+  return [...new Set(data.map((row) => row[key].trim()))].sort();
 }
 
 function populateFilter(selectId, values) {
   const select = document.getElementById(selectId);
+
+  if (!select) return;
 
   values.forEach((value) => {
     const option = document.createElement("option");
@@ -412,6 +470,8 @@ function populateFilter(selectId, values) {
 }
 
 function updateExploreChart() {
+  if (!exploreChart) return;
+
   const selectedTaxon = document.getElementById("taxonFilter").value;
   const selectedLocation = document.getElementById("locationFilter").value;
   const selectedSeason = document.getElementById("seasonFilter").value;
@@ -434,12 +494,18 @@ function updateExploreChart() {
 
   exploreChart.update();
 
-  const average = filteredData.length > 0
-    ? filteredData.reduce((sum, row) => sum + row.fe, 0) / filteredData.length
-    : 0;
+  const average =
+    filteredData.length > 0
+      ? filteredData.reduce((sum, row) => sum + row.fe, 0) / filteredData.length
+      : 0;
 
-  document.getElementById("filterSummary").textContent =
-    `${filteredData.length} samples shown. Average Fe: ${formatNumber(average)} µg/g dry weight. Filters: Taxon = ${selectedTaxon}, Location = ${selectedLocation}, Season = ${selectedSeason}.`;
+  const filterSummary = document.getElementById("filterSummary");
+
+  if (filterSummary) {
+    filterSummary.textContent =
+      `${filteredData.length} samples shown. Average Fe: ${formatNumber(average)} µg/g dry weight. ` +
+      `Filters: Taxon = ${selectedTaxon}, Location = ${selectedLocation}, Season = ${selectedSeason}.`;
+  }
 }
 
 function writeTakeaways() {
@@ -453,22 +519,38 @@ function writeTakeaways() {
   const highestTaxon = getHighestEntry(taxonAverage);
   const highestSeason = getHighestEntry(seasonAverage);
 
-  document.getElementById("compositionTakeaway").textContent =
-    `Takeaway: ${dominantTaxon.label} appear most often in the dataset, so visitors should remember that the sample balance affects how patterns are interpreted.`;
+  setText(
+    "compositionTakeaway",
+    `Takeaway: ${dominantTaxon.label} appear most often in the dataset, so the sample balance affects how patterns should be interpreted.`
+  );
 
-  document.getElementById("siteTakeaway").textContent =
-    `Takeaway: ${highestSite.label} has the higher average Fe concentration in this dataset, helping visitors compare local river sites quickly.`;
+  setText(
+    "siteTakeaway",
+    `Takeaway: ${highestSite.label} has the highest average Fe concentration, helping visitors compare the three river sites quickly.`
+  );
 
-  document.getElementById("taxonTakeaway").textContent =
-    `Takeaway: ${highestTaxon.label} have the highest average Fe concentration, showing why organism choice matters when communicating river health.`;
+  setText(
+    "taxonTakeaway",
+    `Takeaway: ${highestTaxon.label} have the highest average Fe concentration, showing why organism choice matters when communicating river health.`
+  );
 
-  document.getElementById("seasonTakeaway").textContent =
-    `Takeaway: ${highestSeason.label} has the higher average Fe concentration, giving audiences a simple way to think about seasonal change.`;
+  setText(
+    "seasonTakeaway",
+    `Takeaway: ${highestSeason.label} has the higher average Fe concentration, giving audiences a simple way to think about seasonal differences.`
+  );
+}
+
+function setText(elementId, text) {
+  const element = document.getElementById(elementId);
+
+  if (element) {
+    element.textContent = text;
+  }
 }
 
 function getHighestEntry(object) {
   return Object.entries(object).reduce(
-    (highest, [label, value]) => value > highest.value ? { label, value } : highest,
+    (highest, [label, value]) => (value > highest.value ? { label, value } : highest),
     { label: "", value: -Infinity }
   );
 }
@@ -477,4 +559,10 @@ function formatNumber(value) {
   return Number(value).toLocaleString("en-GB", {
     maximumFractionDigits: 2
   });
+}
+
+function logDatasetCheck() {
+  console.log("Dataset rows loaded:", riverData.length);
+  console.log("Locations:", uniqueValues(riverData, "location"));
+  console.log("Taxa:", uniqueValues(riverData, "taxon"));
 }
