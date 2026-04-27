@@ -253,6 +253,14 @@ canvas {
   gap: 18px;
 }
 
+.icon {
+  display: block;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 14px auto;
+  object-fit: contain;
+}
+
 .organism-grid {
   grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
 }
