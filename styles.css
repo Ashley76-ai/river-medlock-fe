@@ -394,6 +394,28 @@ figcaption {
   margin: 0 auto;
 }
 
+#iron-meaning {
+  background: linear-gradient(180deg, var(--cream) 0%, var(--sand) 100%);
+  border-top: 4px solid var(--green-light);
+}
+
+#iron-meaning .card {
+  border-left: 5px solid var(--green);
+  background: var(--white);
+}
+
+#iron-meaning .card h3 {
+  font-size: 1.1rem;
+  color: var(--green-dark);
+  margin-bottom: 10px;
+}
+
+#iron-meaning .card p {
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
 .small-note {
   font-size: 0.9rem;
   margin-top: 16px;
